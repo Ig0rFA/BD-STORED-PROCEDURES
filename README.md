@@ -66,7 +66,6 @@ DELIMITER ;
 
 CALL insercao_cursos('Mecatronica');
 
-select * from cursos;
 
 DELIMITER //
 
@@ -92,13 +91,13 @@ CREATE PROCEDURE email_padrao(
     in p_id int
 )
 BEGIN
-    declare v_generated_email varchar(50);
+    declare v_email varchar(50);
 
     
     select concat(nome, '.', sobrenome, '@dominio.com') into v_generated_email from alunos where id = p_id;
    
     
-    update alunos set email = v_generated_email where id = p_id;
+    update alunos set email = v_email where id = p_id;
 END//
 
 DELIMITER ;
